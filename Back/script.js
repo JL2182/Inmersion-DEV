@@ -1,15 +1,11 @@
 let listaNombresGastos = [];
 let listaValoresGastos = [];
-let listaCategoriasGastos = [];
-let listaFechasGastos = [];
 
 //Esta funcion se invoca al momento de que el usuario hace click  en el boton de agregar gasto
 
 function clickBoton() {
     let nombreGasto = document.getElementById('nombreGasto').value;
     let valorGasto = document.getElementById('valorGasto').value;
-    let categoriaGasto = document.getElementById('categoriaGasto').value;
-    let fechaGasto = document.getElementById('fechaGasto').value;
 
     console.log(nombreGasto);
     console.log(valorGasto);
@@ -17,8 +13,6 @@ function clickBoton() {
 
     listaNombresGastos.push(nombreGasto);
     listaValoresGastos.push(valorGasto);
-    listaCategoriasGastos.push(categoriaGasto);
-    listaFechasGastos.push(fechaGasto);
 
     console.log(listaNombresGastos);
     console.log(listaValoresGastos);
@@ -43,7 +37,7 @@ function actualizarListaGastos() {
 
         const valorGasto = Number(listaValoresGastos[posicion]);
 
-        htmlLista += `<li>${elemento} - USD ${valorGasto.toFixed(2)}  - ${listaCategoriasGastos[posicion]} - ${listaFechasGastos[posicion]}
+        htmlLista += `<li>${elemento} - USD ${valorGasto.toFixed(2)} 
         
                     <button onclick="eliminarGasto(${posicion});">Eliminar Gasto</button>
                     <button onclick="actualizarGasto(${posicion});">Actualizar</button>    
@@ -62,8 +56,6 @@ function actualizarListaGastos() {
 function limpiar() {
     document.getElementById('nombreGasto').value = '';
     document.getElementById('valorGasto').value = '';
-    document.getElementById('categoriaGasto').value = '';
-    document.getElementById('fechaGasto').value = '';
 }
 
 function eliminarGasto(posicion) {
