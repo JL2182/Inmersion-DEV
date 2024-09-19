@@ -19,6 +19,11 @@ function clickBoton() {
 
     actualizarListaGastos();
     //alert('Click del usuario'); 
+
+    if (valorGasto > 150) {
+        alert("¡Cuidado! El gasto es mayor a 150 USD. ¿Estás seguro de registrarlo?");
+    }
+
 }
 
 function actualizarListaGastos() {
@@ -35,7 +40,7 @@ function actualizarListaGastos() {
         htmlLista += `<li>${elemento} - USD ${valorGasto.toFixed(2)} 
         
                     <button onclick="eliminarGasto(${posicion});">Eliminar Gasto</button>
-        
+                    <button onclick="actualizarGasto(${posicion});">Actualizar</button>    
                     </li>`;
         //Calculamos el total de gastos
 
@@ -56,5 +61,18 @@ function limpiar() {
 function eliminarGasto(posicion) {
     listaNombresGastos.splice(posicion, 1);
     listaValoresGastos.splice(posicion, 1);
+    actualizarListaGastos();
+}
+
+function actualizarGasto(posicion) {
+    // Obtener los nuevos valores del usuario (por ejemplo, en un modal o directamente en la lista)
+    const nuevoNombre = prompt("Ingrese el nuevo nombre del gasto:");
+    const nuevoValor = parseFloat(prompt("Ingrese el nuevo valor del gasto:"));
+
+    // Actualizar los arreglos
+    listaNombresGastos[posicion] = nuevoNombre;
+    listaValoresGastos[posicion] = nuevoValor;
+
+    // Actualizar la lista en el DOM
     actualizarListaGastos();
 }
