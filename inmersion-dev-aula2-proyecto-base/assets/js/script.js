@@ -30,8 +30,6 @@ function actualizarListaGastos() {
 
     listaNombresGastos.forEach((elemento, posicion) => {
 
-        //console.log(elemento);
-        //console.log(posicion);
         const valorGasto = Number(listaValoresGastos[posicion]);
 
         htmlLista += `<li>${elemento} - USD ${valorGasto.toFixed(2)} 
